@@ -38,10 +38,10 @@ export async function create_order(cartid :string , shippingAddress : shipaddres
 
 
 
-export async function create_visaorder(cartid :string , shippingAddress : shipaddresstype )
+export async function create_visaorder(cartid :string , shippingAddress : shipaddresstype ,base_url :string )
 {
     const mytoken = await get_usertoken();
-    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartid}?url=http://localhost:3000` , { 
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartid}?url=${base_url}` , { 
         method:"post" , 
         headers:{
             "token": mytoken as string ,

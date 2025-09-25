@@ -93,7 +93,8 @@ function Payment()
         
         if(pay_visa)
         {
-            const url =  await create_visaorder(cartid || "" , formdata as shipaddresstype) ;
+            const current_domain = window.location.origin;
+            const url =  await create_visaorder(cartid || "" , formdata as shipaddresstype , current_domain) ;
             if(url)
             {
                 myrouter.push(url);

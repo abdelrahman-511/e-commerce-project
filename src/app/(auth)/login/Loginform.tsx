@@ -48,6 +48,8 @@ export function Loginform()
         {
             toast.success("Welcome to Fresh Cart 🛒 " , { position:"top-center" ,duration:3000 } )
             window.location.href="/"
+            console.log(ress);
+            
         }
         else
         {

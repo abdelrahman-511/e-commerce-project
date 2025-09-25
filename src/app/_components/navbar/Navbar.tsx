@@ -15,8 +15,10 @@ let countt:number = 0;
 
 async function handle_logout()
 {
-    toast.message("See you back soon !"  , {  position:"top-center" , duration:3000 })
-    await signOut({ redirect:true , callbackUrl:"/login"  })
+    
+    toast.success("See you back soon !"  , {  position:"top-right" , duration:3000 })
+    await signOut({ redirect:false  })
+    window.location.href = "/login"
 }
 
 
