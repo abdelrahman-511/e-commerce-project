@@ -1,0 +1,24 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
+
+
+
+
+export default async function middleware(request :NextRequest)
+{
+
+    var is_auth = await getToken({ req:request })
+    
+    if(is_auth)
+    {
+        return NextResponse.next()
+    }
+    return NextResponse.redirect(`${process.env.mydomain}/login`)
+
+}
+
+
+export const config = 
+{
+    matcher: ["/" ,"/categories","/products" ,"/productdetails/:path*" , "/category-products/:path*" , "/cart" ,"/payment" , "/allorders" , "/wishlist" ]
+}
