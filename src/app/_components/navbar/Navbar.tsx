@@ -5,14 +5,11 @@
 import Link from "next/link";
 import logo from "@image/freshcart-logo.svg"
 import Image from "next/image";
-import { useRef } from "react";
+import {  useRef } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
 
 
-
-
-let test:HTMLDivElement
 
 let countt:number = 0;
 
@@ -29,7 +26,7 @@ export function Navbar ()
     const { data :status } = useSession();
     
 
-   const myref =  useRef(test);
+   const myref =  useRef<HTMLDivElement>(null);
 
 
    function show()

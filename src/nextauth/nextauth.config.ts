@@ -64,9 +64,12 @@ export const nextauthconfig:NextAuthOptions = {
 
 
             if(params.user)
-            {
-                params.token.credentialstoken = params.user.token ;
-                params.token.id = params.user.id;
+            {  
+                 const userdata1  = params.user as unknown
+                 const userdata2 = userdata1 as { token :string ;   id :string}
+                 
+                params.token.credentialstoken = userdata2.token ;
+                params.token.id = userdata2.id;
             }
 
             // console.log('params = ' , params);
@@ -76,10 +79,16 @@ export const nextauthconfig:NextAuthOptions = {
         },
 
         session(params) {
-            // console.log("token = ", params.token);
-            params.session.user.id = params.token.id ;
+           
+            
+                
+            
             
             return params.session ;
+            // console.log("token = ", params.token);
+            
+            
+            
         },
       }
       
