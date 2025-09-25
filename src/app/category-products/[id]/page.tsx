@@ -2,7 +2,7 @@ import { Productcard } from "@/app/_components/productcard/Productcard";
 import { get_categoryproducts } from "@/app/_services/product.service";
 import { idparamprop } from "@/app/productdetails/[id]/page"
 
-type paramstype = { 
+export type paramstype = { 
     id:string ;
 }
 

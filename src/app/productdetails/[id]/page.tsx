@@ -1,5 +1,6 @@
 import { AddtoCartbtn } from "@/app/_components/addtocartbtn/addtoCartbtn";
 import { get_productdetails } from "@/app/_services/product.service";
+import { paramstype } from "@/app/category-products/[id]/page";
 
 
 export type idparamprop =
@@ -10,9 +11,10 @@ export type idparamprop =
 }
 
 
-async function productdetails( {params} :idparamprop )
+async function productdetails( {params} :{ params:Promise<paramstype> } )
 {
-    const object = await get_productdetails(params.id);    
+    const { id } = await params ;
+    const object = await get_productdetails(id);    
 
     return (
         <>
@@ -43,7 +45,7 @@ async function productdetails( {params} :idparamprop )
 
                                 </> ) }
                             <span className="uppercase"> egp</span></h5>
-                            <AddtoCartbtn id={params.id} />
+                            <AddtoCartbtn id={id} />
                         </div>
                     </div>
                 </div>
