@@ -7,7 +7,7 @@ import { getToken } from "next-auth/jwt";
 export default async function middleware(request :NextRequest)
 {
 
-    let is_auth = await getToken({ req:request })
+    const is_auth = await getToken({ req:request })
     
     if(is_auth)
     {

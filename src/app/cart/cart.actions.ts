@@ -9,9 +9,9 @@ import { revalidatePath } from "next/cache";
 
 export async function handle_addtocart(productId : string)
 {
-    let usertoken :string ;
-    usertoken = await get_usertoken()
-    let res = await fetch("https://ecommerce.routemisr.com/api/v1/cart" , {  
+    
+    const usertoken :string = await get_usertoken()
+    const res = await fetch("https://ecommerce.routemisr.com/api/v1/cart" , {  
         method:"post" , 
         body: JSON.stringify(  {  productId  } ) ,
         headers:{
@@ -20,7 +20,7 @@ export async function handle_addtocart(productId : string)
         }
       } ) ;
 
-    let response = await res.json()
+    const response = await res.json()
     // console.log("response = ", response);
     if(response.status==="success")
     {
@@ -34,15 +34,15 @@ export async function handle_addtocart(productId : string)
 
 export async function removecartitem(id :string)
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart/${id}` , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart/${id}` , { 
         method:"delete" ,
         headers:{
             "token" : mytoken as string
         }
      }  ) ;
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
@@ -62,15 +62,15 @@ export async function removecartitem(id :string)
 
 export async function clearcart()
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch("https://ecommerce.routemisr.com/api/v1/cart" , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch("https://ecommerce.routemisr.com/api/v1/cart" , { 
         method:"delete" ,
         headers:{
             "token" : mytoken as string
         }
      }  ) ;
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.message==="success")
     {
@@ -91,8 +91,8 @@ export async function clearcart()
 
 export async function changeitemquantity(id :string , count :number)
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart/${id}` , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart/${id}` , { 
         method:"put" ,
         headers:{
             "token" : mytoken as string , 
@@ -103,7 +103,7 @@ export async function changeitemquantity(id :string , count :number)
 
      }  ) ;
 
-    let response = await res.json();   
+    const response = await res.json();   
     // console.log("response = " , response);
     if(response.status==="success")
     {

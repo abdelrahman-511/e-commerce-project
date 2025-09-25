@@ -26,10 +26,10 @@ async function handle_logout()
 export function Navbar ()
 {
 
-    let { data :status } = useSession();
+    const { data :status } = useSession();
     
 
-   let myref =  useRef(test);
+   const myref =  useRef(test);
 
 
    function show()

@@ -14,12 +14,10 @@ type userauthtype = {
 }
 
 
-let usersdata: userdatatype [] ;
-let usersauth:userauthtype[] ;
 
 
 
-usersdata = [  
+const usersdata: userdatatype [] = [  
 
     {  
         name:"abdelrahman" ,
@@ -42,7 +40,7 @@ usersdata = [
   ]
 
 
-  usersauth = [  
+  const usersauth:userauthtype[] = [  
 
     {  
         email:"abdelrahmanbakir910@gmail.com" ,
@@ -75,9 +73,9 @@ export function GET ()
 
 export async function POST (request:NextRequest)
 {
-    let data:userauthtype = await request.json()
-   let arr =  usersauth.map( function (user) { return (   (data.email==user.email)&&(data.password==user.password)  ? user : false  )  } )
-    let check = arr.filter(function (user) {   return user  } )
+    const data:userauthtype = await request.json()
+   const arr =  usersauth.map( function (user) { return (   (data.email==user.email)&&(data.password==user.password)  ? user : false  )  } )
+    const check = arr.filter(function (user) {   return user  } )
     if(check.length!=0)
     {
         console.log("check = " , check);

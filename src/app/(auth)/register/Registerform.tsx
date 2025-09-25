@@ -28,15 +28,15 @@ import { useRouter } from "next/navigation";
 export function Registerform ()
 {
 
-     let myrouter = useRouter();
+     const myrouter = useRouter();
 
 
 
-    let myform =  useForm(  {
+    const myform =  useForm(  {
         resolver: zodResolver(registerschema) ,
 
     } );
-    let {control ,handleSubmit} = myform
+    const {control ,handleSubmit} = myform
 
 
 
@@ -44,7 +44,7 @@ export function Registerform ()
     async function onsubmit (data:registerdatatype)
     {
 
-        let res = await registerhandle(data);
+        const res = await registerhandle(data);
 
         if(res===true)
         {

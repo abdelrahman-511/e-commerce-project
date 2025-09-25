@@ -23,7 +23,7 @@ export type shipaddresstype = {
 }
 
 
-let addresschema = z.object( { 
+const addresschema = z.object( { 
 
     details: z.string("enter your address details !").nonempty("enter your address details !") , 
     phone : z.string("enter your phone !").nonempty("enter your phone !").regex(/^01[0125][0-9]{8}$/ , "invalid phone number format !") , 
@@ -51,9 +51,9 @@ function Payment()
 
 
 
-    let myrouter = useRouter()
+    const myrouter = useRouter()
 
-    let myform = useForm(  { 
+    const myform = useForm(  { 
         mode:"onBlur" , 
         resolver: zodResolver(addresschema) ,
      } ) ;
@@ -61,9 +61,9 @@ function Payment()
      
     
 
-    let [cartid  , setcartid ] = useState()
+    const [cartid  , setcartid ] = useState()
 
-    let { control , handleSubmit } = myform
+    const { control , handleSubmit } = myform
 
 
 
@@ -74,7 +74,7 @@ function Payment()
 
     async function getting_cart()
     {
-       let { cartId } = await handle_usercart();
+       const { cartId } = await handle_usercart();
        setcartid(cartId);
     }
 
@@ -93,7 +93,7 @@ function Payment()
         
         if(pay_visa)
         {
-            let url =  await create_visaorder(cartid || "" , formdata as shipaddresstype) ;
+            const url =  await create_visaorder(cartid || "" , formdata as shipaddresstype) ;
             if(url)
             {
                 myrouter.push(url);
@@ -105,7 +105,7 @@ function Payment()
         } 
         else
         {
-            let is_created = await create_order(cartid||"",formdata as shipaddresstype)
+            const is_created = await create_order(cartid||"",formdata as shipaddresstype)
             if(is_created)
             {
                 toast.success("your order placed successfully" , {position:"top-right" , duration:3000}) ; 

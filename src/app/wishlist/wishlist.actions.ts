@@ -10,8 +10,8 @@ import { revalidateTag } from "next/cache";
 
 export async function addto_wishlist( productId :string )
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
         method: "post" ,
         headers: {
             "token" : mytoken as string ,
@@ -23,7 +23,7 @@ export async function addto_wishlist( productId :string )
 
      }  ) ;
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
@@ -42,8 +42,8 @@ export async function addto_wishlist( productId :string )
 
 export async function get_wishlist( )
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
         headers: {
             "token" : mytoken as string ,
             
@@ -54,9 +54,9 @@ export async function get_wishlist( )
         }
      }  ) ;
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
-    let {data  , count } = response
+    const {data  , count } = response
     
     
         
@@ -74,8 +74,8 @@ export async function get_wishlist( )
 
 export async function delete_fromwishlist( productid :string)
 {
-    let mytoken = await get_usertoken()
-    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productid}` , { 
+    const mytoken = await get_usertoken()
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productid}` , { 
         method:"delete" ,
 
         headers: {
@@ -85,7 +85,7 @@ export async function delete_fromwishlist( productid :string)
 
      }  ) ;
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {

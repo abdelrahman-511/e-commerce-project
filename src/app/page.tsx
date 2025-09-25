@@ -15,7 +15,7 @@ import { cookies, headers } from "next/headers";
 
 
 
-   let Categoryslider = lazy(() => import ('./_components/categoryslider/Categoryslider'))
+   const Categoryslider = lazy(() => import ('./_components/categoryslider/Categoryslider'))
 
 
 
@@ -27,7 +27,7 @@ import { cookies, headers } from "next/headers";
    
     
 
-  let allproducts = await get_allproducts();
+  const allproducts = await get_allproducts();
   // console.log(allproducts);
   
 

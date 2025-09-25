@@ -11,7 +11,7 @@ export async function registerhandle(data:registerdatatype)
 {
     try
     {
-       let res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signup" ,{ 
+       const res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signup" ,{ 
 
             method:"post" ,
             body: JSON.stringify(data) ,
@@ -23,7 +23,7 @@ export async function registerhandle(data:registerdatatype)
 
          }) ;
         
-        let responsee = await res.json();
+        const responsee = await res.json();
 
         // console.log("response " , responsee);
         if(responsee.statusMsg=='fail')

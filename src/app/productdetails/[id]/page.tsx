@@ -12,7 +12,7 @@ export type idparamprop =
 
 async function productdetails( {params} :idparamprop )
 {
-    let object = await get_productdetails(params.id);    
+    const object = await get_productdetails(params.id);    
 
     return (
         <>

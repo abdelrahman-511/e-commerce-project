@@ -11,7 +11,7 @@ export function Clearcartbtn()
     async function handle_clearcart()
     {
         // console.log("clearing the cart ...");
-         let is_cleared =  await clearcart() ;
+         const is_cleared =  await clearcart() ;
          if(is_cleared)
          {
             toast.success("Cart have been cleared successfully" , { position:"top-right" , duration:3000 } )

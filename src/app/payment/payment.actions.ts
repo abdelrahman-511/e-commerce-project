@@ -12,8 +12,8 @@ import { revalidatePath, revalidateTag } from "next/cache";
 
 export async function create_order(cartid :string , shippingAddress : shipaddresstype )
 {
-    let mytoken = await get_usertoken();
-    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/${cartid}` , { 
+    const mytoken = await get_usertoken();
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/${cartid}` , { 
         method:"post" , 
         headers:{
             "token": mytoken as string ,
@@ -23,7 +23,7 @@ export async function create_order(cartid :string , shippingAddress : shipaddres
         body:JSON.stringify( { shippingAddress } )
      } ) ; 
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
@@ -40,8 +40,8 @@ export async function create_order(cartid :string , shippingAddress : shipaddres
 
 export async function create_visaorder(cartid :string , shippingAddress : shipaddresstype )
 {
-    let mytoken = await get_usertoken();
-    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartid}?url=http://localhost:3000` , { 
+    const mytoken = await get_usertoken();
+    const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartid}?url=http://localhost:3000` , { 
         method:"post" , 
         headers:{
             "token": mytoken as string ,
@@ -51,7 +51,7 @@ export async function create_visaorder(cartid :string , shippingAddress : shipad
         body:JSON.stringify( { shippingAddress } )
      } ) ; 
 
-    let response = await res.json();
+    const response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
@@ -69,7 +69,7 @@ export async function create_visaorder(cartid :string , shippingAddress : shipad
 
 export async function handle_usercart()
 {
-    let response = await get_usercart();
+    const response = await get_usercart();
     return response ;
 
 }

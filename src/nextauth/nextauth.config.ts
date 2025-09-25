@@ -2,13 +2,13 @@ import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import {jwtDecode}  from "jwt-decode"
 
-export let nextauthconfig:NextAuthOptions = {
+export const nextauthconfig:NextAuthOptions = {
     providers:[  
         Credentials({  
             name:"Fresh Cart 🛒 " ,
            async authorize(credentials, req) {
                 
-                       let res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signin", {  
+                       const res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signin", {  
                                     method:"post" ,
                                     body: JSON.stringify(credentials) ,
 
@@ -18,12 +18,12 @@ export let nextauthconfig:NextAuthOptions = {
 
                                 }  )
 
-                                let response = await res.json();
+                                const response = await res.json();
 
                                 if(response.message=="success")
                                 {
                                     // console.log("response = " ,response);
-                                   let detoken: {id:string}  =  jwtDecode(response.token);
+                                   const detoken: {id:string}  =  jwtDecode(response.token);
                                     
                                     return {  
                                         ...response.user ,

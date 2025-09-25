@@ -7,7 +7,7 @@ import { Myswiper } from "../myswiper/Myswiper"
 export default async function Categoryslider()
 {
 
-    let allcategories = await get_allcategories()
+    const allcategories = await get_allcategories()
 
     return (
         <>

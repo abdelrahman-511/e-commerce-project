@@ -11,13 +11,13 @@ import { EventEmitterAsyncResource } from "events"
 
 export function Products_search(  { data } : { data:productType[]|null }  )
 {
-    let [searchvalue ,setsearchvalue] = useState("")
+    const [searchvalue ,setsearchvalue] = useState("")
     // console.log(data);
     
 
     function handlesearchvalue(e: SyntheticEvent)
     {
-        let mytarget = e.target as HTMLInputElement
+        const mytarget = e.target as HTMLInputElement
         setsearchvalue(mytarget.value)
         
     }

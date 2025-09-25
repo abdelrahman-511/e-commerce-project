@@ -8,7 +8,7 @@ import { get_allcategories } from "../_services/categories.service"
 async function categories()
 {
 
-   let allcategories = await get_allcategories();
+   const allcategories = await get_allcategories();
     return (
         <>
             <section className="py-6">

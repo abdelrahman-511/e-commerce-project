@@ -36,11 +36,11 @@ export type carttype = {
 
 async function cart ()
 {
-    let mytoken = await get_usertoken();
-    let decodedtoken: { name :string } = jwtDecode(mytoken)
-    let usercart : carttype ; 
-    usercart =  await get_usercart()
-    let { products ,numOfCartItems } = usercart
+    const mytoken = await get_usertoken();
+    const decodedtoken: { name :string } = jwtDecode(mytoken)
+    const usercart : carttype =  await get_usercart()
+    
+    const { products ,numOfCartItems } = usercart
 //    console.log(usercart);
    
 
