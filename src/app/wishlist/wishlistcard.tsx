@@ -13,7 +13,7 @@ export function Wishlist_card({ product } :productprop)
 {
     async function handle_removewishlist()
     {
-        var is_removed = await delete_fromwishlist(product.id)
+        let is_removed = await delete_fromwishlist(product.id)
         if(is_removed)
         {
             toast.success("Product removed successfully from your wishlist" , {position:"top-right"})

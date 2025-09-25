@@ -19,7 +19,7 @@ export type ordertype = {
 async function orders()
 {   
     
-    var allorder = await get_userorders()
+    let allorder = await get_userorders()
 
     return ( 
         <>

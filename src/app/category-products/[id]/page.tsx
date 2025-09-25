@@ -10,9 +10,9 @@ type paramstype = {
 
 async function categoryproducts( {params} :{ params:Promise<paramstype> } )
 {
-    var { id } = await params ;
-    var response = await get_categoryproducts(id);
-    var {results ,data} = response;
+    let { id } = await params ;
+    let response = await get_categoryproducts(id);
+    let {results ,data} = response;
     
 
     return ( 

@@ -23,7 +23,7 @@ export type shipaddresstype = {
 }
 
 
-var addresschema = z.object( { 
+let addresschema = z.object( { 
 
     details: z.string("enter your address details !").nonempty("enter your address details !") , 
     phone : z.string("enter your phone !").nonempty("enter your phone !").regex(/^01[0125][0-9]{8}$/ , "invalid phone number format !") , 
@@ -34,11 +34,11 @@ var addresschema = z.object( {
 
 
 
-function payment()
+function Payment()
 {
 
     
-     var pay_visa :boolean = false;
+     let pay_visa :boolean = false;
 
     function click_visabtn()
     {
@@ -51,9 +51,9 @@ function payment()
 
 
 
-    var myrouter = useRouter()
+    let myrouter = useRouter()
 
-    var myform = useForm(  { 
+    let myform = useForm(  { 
         mode:"onBlur" , 
         resolver: zodResolver(addresschema) ,
      } ) ;
@@ -61,9 +61,9 @@ function payment()
      
     
 
-    var [cartid  , setcartid ] = useState()
+    let [cartid  , setcartid ] = useState()
 
-    var { control , handleSubmit } = myform
+    let { control , handleSubmit } = myform
 
 
 
@@ -74,7 +74,7 @@ function payment()
 
     async function getting_cart()
     {
-       var { cartId } = await handle_usercart();
+       let { cartId } = await handle_usercart();
        setcartid(cartId);
     }
 
@@ -93,7 +93,7 @@ function payment()
         
         if(pay_visa)
         {
-            var url =  await create_visaorder(cartid || "" , formdata as shipaddresstype) ;
+            let url =  await create_visaorder(cartid || "" , formdata as shipaddresstype) ;
             if(url)
             {
                 myrouter.push(url);
@@ -105,7 +105,7 @@ function payment()
         } 
         else
         {
-            var is_created = await create_order(cartid||"",formdata as shipaddresstype)
+            let is_created = await create_order(cartid||"",formdata as shipaddresstype)
             if(is_created)
             {
                 toast.success("your order placed successfully" , {position:"top-right" , duration:3000}) ; 
@@ -205,4 +205,4 @@ function payment()
 }
 
 
-export default payment ;
+export default Payment ;

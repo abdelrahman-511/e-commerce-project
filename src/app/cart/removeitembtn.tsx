@@ -15,7 +15,7 @@ export function Removeitembtn({ id } : { id:string })
     async function handleremoveitem()
     {
         // console.log("removing ...");
-      var is_removed =  await removecartitem(id);
+      let is_removed =  await removecartitem(id);
       if(is_removed)
       {
         toast.success("item removed successfully" , { position:"top-right" , duration:3000 } )

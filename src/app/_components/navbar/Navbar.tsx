@@ -12,9 +12,9 @@ import { toast } from "sonner";
 
 
 
-var test:HTMLDivElement
+let test:HTMLDivElement
 
-var countt:number = 0;
+let countt:number = 0;
 
 async function handle_logout()
 {
@@ -26,10 +26,10 @@ async function handle_logout()
 export function Navbar ()
 {
 
-    var { data :status } = useSession();
+    let { data :status } = useSession();
     
 
-   var myref =  useRef(test);
+   let myref =  useRef(test);
 
 
    function show()

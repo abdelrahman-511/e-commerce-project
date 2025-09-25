@@ -2,7 +2,7 @@ import { nextauthconfig } from "@/nextauth/nextauth.config";
 import NextAuth from "next-auth";
 
 
-var mynextauth = NextAuth(nextauthconfig)
+let mynextauth = NextAuth(nextauthconfig)
 
 
 

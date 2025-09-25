@@ -8,13 +8,13 @@ import { ordertype } from "./page";
 
 export async function get_userorders() :Promise <ordertype []>
 {
-    var decodedtoken : { id:string ; }
-    var mytoken = await get_usertoken() ;
+    let decodedtoken : { id:string ; }
+    let mytoken = await get_usertoken() ;
     decodedtoken = jwtDecode(mytoken) ;
-    var res  = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${decodedtoken.id}` , { 
+    let res  = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${decodedtoken.id}` , { 
         
       } );
-    var response = await res.json();
+    let response = await res.json();
     // console.log("response = " ,response);
     return response ;
     

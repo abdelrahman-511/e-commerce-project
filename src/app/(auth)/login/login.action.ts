@@ -12,7 +12,7 @@ export async function loginhandle(data:logindatatype)
 {
     try
     {
-       var res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signin" , { 
+       let res = await fetch("https://ecommerce.routemisr.com/api/v1/auth/signin" , { 
 
                                 method:"post" ,
                                 body: JSON.stringify(data) , 
@@ -24,12 +24,12 @@ export async function loginhandle(data:logindatatype)
                         }  )
 
         
-        var response = await res.json()
+        let response = await res.json()
 
         // console.log("response = " , response);
         if(response.message=="success")
         {
-            var mycookie = await cookies();
+            let mycookie = await cookies();
             mycookie.set("user-token" , response.token , { 
 
                     sameSite:"strict" ,

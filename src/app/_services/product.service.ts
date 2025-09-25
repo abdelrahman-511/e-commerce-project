@@ -6,11 +6,11 @@ export async function get_allproducts() :Promise<productType[]|null>
 
     try
     {
-      var res = await fetch("https://ecommerce.routemisr.com/api/v1/products" ,{
+      let res = await fetch("https://ecommerce.routemisr.com/api/v1/products" ,{
         cache:"force-cache"
        
       } )
-      var responsee = await res.json() ;
+      let responsee = await res.json() ;
       return responsee.data ;
     }
     catch(e)
@@ -28,8 +28,8 @@ export async function get_allproducts() :Promise<productType[]|null>
 
    try
    {
-      var res = await fetch(`https://ecommerce.routemisr.com/api/v1/products/${id}`) ;
-      var responee = await res.json();
+      let res = await fetch(`https://ecommerce.routemisr.com/api/v1/products/${id}`) ;
+      let responee = await res.json();
 
       return responee.data
    }
@@ -50,8 +50,8 @@ export async function get_allproducts() :Promise<productType[]|null>
    } >
   {
 
-    var res = await fetch(`https://ecommerce.routemisr.com/api/v1/products?category=${id}`);
-    var response  = await res.json();
+    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/products?category=${id}`);
+    let response  = await res.json();
     // console.log("response = ", response);
     return response
   }

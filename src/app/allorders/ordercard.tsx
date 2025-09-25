@@ -9,7 +9,7 @@ import { ordertype } from "./page";
 
 export function Ordercard( { order  } : {  order :ordertype } )
 {
-    var {cartItems } = order ;
+    let {cartItems } = order ;
     
 
 

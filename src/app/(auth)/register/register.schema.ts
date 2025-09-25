@@ -5,7 +5,7 @@ import * as z from "zod";
 
 
 
-export var registerschema = z.object({ 
+export let registerschema = z.object({ 
 
     name : z.string("This field is required !").nonempty("Enter your name !").min(3,"Name must be at least 3 characters !").max(20,"Name must be at most 20 characters !") ,
     email : z.email("invalid email format !") ,

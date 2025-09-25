@@ -36,11 +36,11 @@ export type carttype = {
 
 async function cart ()
 {
-    var mytoken = await get_usertoken();
-    var decodedtoken: { name :string } = jwtDecode(mytoken)
-    var usercart : carttype ; 
+    let mytoken = await get_usertoken();
+    let decodedtoken: { name :string } = jwtDecode(mytoken)
+    let usercart : carttype ; 
     usercart =  await get_usercart()
-    var { products ,numOfCartItems } = usercart
+    let { products ,numOfCartItems } = usercart
 //    console.log(usercart);
    
 
@@ -51,7 +51,7 @@ async function cart ()
                     { numOfCartItems? (  
                         <div className="py-6">
                             <h1 className="text-center font-semibold text-xl">
-                                { decodedtoken.name.split(" " ,1) }'s cart
+                                { decodedtoken.name.split(" " ,1) } cart
                             </h1>
                             <div className="flex justify-end w-[80%] mx-auto mt-5">
                                 <Clearcartbtn />

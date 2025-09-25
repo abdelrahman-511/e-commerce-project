@@ -23,10 +23,10 @@ import { signIn } from "next-auth/react";
 export function Loginform()
 {
     
-    var myrouter = useRouter();
+    let myrouter = useRouter();
 
 
-   var myform =  useForm( {
+   let myform =  useForm( {
 
         resolver: zodResolver(loginschema) ,
 
@@ -34,7 +34,7 @@ export function Loginform()
 
 
 
-   var {control ,handleSubmit} = myform ; 
+   let {control ,handleSubmit} = myform ; 
 
 
 
@@ -42,7 +42,7 @@ export function Loginform()
     {
         // console.log(data);
 
-      var ress =  await signIn("credentials" , { ...data , redirect: false  })
+      let ress =  await signIn("credentials" , { ...data , redirect: false  })
         // console.log("response = " ,ress);
         if(ress?.ok)
         {

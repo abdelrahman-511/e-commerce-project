@@ -3,12 +3,12 @@ import { cookies } from "next/headers";
 
 
 
-export async function get_usertoken() :Promise <any>
+export async function get_usertoken() :Promise <string>
 {
 
-    var mycookie = await cookies() ;
-    var mytoken = mycookie.get("next-auth.session-token")?.value
-    var decodedtoken = await decode({  token:mytoken , secret:process.env.NEXTAUTH_SECRET || "" });
+    let mycookie = await cookies() ;
+    let mytoken = mycookie.get("next-auth.session-token")?.value
+    let decodedtoken = await decode({  token:mytoken , secret:process.env.NEXTAUTH_SECRET || "" });
 
-    return decodedtoken?.credentialstoken
+    return decodedtoken?.credentialstoken as string
 }

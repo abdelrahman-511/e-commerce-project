@@ -1,21 +1,24 @@
 "use client"
 
-import { useState } from "react"
+import { ChangeEventHandler, SyntheticEvent, useState } from "react"
 import { productType } from "../_interfaces/product"
 import { Productcard } from "../_components/productcard/Productcard"
+import { EventType } from "react-hook-form"
+import { EventEmitterAsyncResource } from "events"
 
 
 
 
 export function Products_search(  { data } : { data:productType[]|null }  )
 {
-    var [searchvalue ,setsearchvalue] = useState("")
+    let [searchvalue ,setsearchvalue] = useState("")
     // console.log(data);
     
 
-    function handlesearchvalue(e:any)
+    function handlesearchvalue(e: SyntheticEvent)
     {
-        setsearchvalue(e.target.value)
+        let mytarget = e.target as HTMLInputElement
+        setsearchvalue(mytarget.value)
         
     }
     

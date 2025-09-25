@@ -10,13 +10,12 @@ import { get_allproducts } from "./_services/product.service";
 import Image from "next/image";
 import { Isloading } from "./_components/loading/isloading";
 import { cookies, headers } from "next/headers";
-import { Checklogin } from "./checklogged";
 
 
 
 
 
-   var Categoryslider = lazy(() => import ('./_components/categoryslider/Categoryslider'))
+   let Categoryslider = lazy(() => import ('./_components/categoryslider/Categoryslider'))
 
 
 
@@ -28,7 +27,7 @@ import { Checklogin } from "./checklogged";
    
     
 
-  var allproducts = await get_allproducts();
+  let allproducts = await get_allproducts();
   // console.log(allproducts);
   
 

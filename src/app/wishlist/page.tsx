@@ -15,8 +15,8 @@ import { Wishlist_card } from "./wishlistcard";
 async function wishlist ()
 {
     
-    var allproducts : productType []
-   var {data , count} = await get_wishlist();
+    let allproducts : productType []
+   let {data , count} = await get_wishlist();
     allproducts = data ;
 
     return ( 

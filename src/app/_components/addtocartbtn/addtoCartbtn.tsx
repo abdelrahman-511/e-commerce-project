@@ -13,7 +13,7 @@ export function AddtoCartbtn({ id } : { id:string } )
     async function add_tocart()
     {
         // console.log("adding...");
-        var is_added = await handle_addtocart(id)
+        let is_added = await handle_addtocart(id)
         if(is_added)
         {
             toast.success("Product added successfully to your cart" , { position:"top-right" ,duration:3000 } )

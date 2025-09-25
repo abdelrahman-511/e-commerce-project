@@ -13,11 +13,11 @@ import { useState } from "react";
 export function Addwishlistbtn ( { id } : { id :string  }  )
 {
    
-    var [is_added , setisadded] = useState<boolean>(false)
+    let [is_added , setisadded] = useState<boolean>(false)
    async function handle_addwishlist()
     {
        
-        var res  = await addto_wishlist(id);
+        let res  = await addto_wishlist(id);
         if(res)
         {
             setisadded(true);

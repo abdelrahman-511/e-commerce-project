@@ -14,8 +14,8 @@ type userauthtype = {
 }
 
 
-var usersdata: userdatatype [] ;
-var usersauth:userauthtype[] ;
+let usersdata: userdatatype [] ;
+let usersauth:userauthtype[] ;
 
 
 
@@ -75,9 +75,9 @@ export function GET ()
 
 export async function POST (request:NextRequest)
 {
-    var data:userauthtype = await request.json()
-   var arr =  usersauth.map( function (user) { return (   (data.email==user.email)&&(data.password==user.password)  ? user : false  )  } )
-    var check = arr.filter(function (user) {   return user  } )
+    let data:userauthtype = await request.json()
+   let arr =  usersauth.map( function (user) { return (   (data.email==user.email)&&(data.password==user.password)  ? user : false  )  } )
+    let check = arr.filter(function (user) {   return user  } )
     if(check.length!=0)
     {
         console.log("check = " , check);

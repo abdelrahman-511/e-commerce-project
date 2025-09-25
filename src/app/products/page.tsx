@@ -7,7 +7,7 @@ import { Products_search } from "./productsSearch";
 
 export default async function products()
 {
-    var all_products = await get_allproducts();
+    let all_products = await get_allproducts();
    
    
 

@@ -10,8 +10,8 @@ import { revalidateTag } from "next/cache";
 
 export async function addto_wishlist( productId :string )
 {
-    var mytoken = await get_usertoken()
-    var res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
+    let mytoken = await get_usertoken()
+    let res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
         method: "post" ,
         headers: {
             "token" : mytoken as string ,
@@ -23,7 +23,7 @@ export async function addto_wishlist( productId :string )
 
      }  ) ;
 
-    var response = await res.json();
+    let response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
@@ -42,8 +42,8 @@ export async function addto_wishlist( productId :string )
 
 export async function get_wishlist( )
 {
-    var mytoken = await get_usertoken()
-    var res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
+    let mytoken = await get_usertoken()
+    let res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist" , { 
         headers: {
             "token" : mytoken as string ,
             
@@ -54,9 +54,9 @@ export async function get_wishlist( )
         }
      }  ) ;
 
-    var response = await res.json();
+    let response = await res.json();
     // console.log("response = " , response);
-    var {data  , count } = response
+    let {data  , count } = response
     
     
         
@@ -74,8 +74,8 @@ export async function get_wishlist( )
 
 export async function delete_fromwishlist( productid :string)
 {
-    var mytoken = await get_usertoken()
-    var res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productid}` , { 
+    let mytoken = await get_usertoken()
+    let res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productid}` , { 
         method:"delete" ,
 
         headers: {
@@ -85,7 +85,7 @@ export async function delete_fromwishlist( productid :string)
 
      }  ) ;
 
-    var response = await res.json();
+    let response = await res.json();
     // console.log("response = " , response);
     if(response.status==="success")
     {
