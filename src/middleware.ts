@@ -13,7 +13,7 @@ export default async function middleware(request :NextRequest)
     {
         return NextResponse.next()
     }
-    return NextResponse.redirect(`${process.env.mydomain}/login`)
+    return NextResponse.redirect(`http://localhost:3000/login`)
 
 }
 
