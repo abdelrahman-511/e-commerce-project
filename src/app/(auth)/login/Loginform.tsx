@@ -43,7 +43,7 @@ export function Loginform()
         // console.log(data);
 
       const ress =  await signIn("credentials" , { ...data , redirect: false  })
-        // console.log("response = " ,ress);
+        console.log("login response = " ,ress);
         if(ress?.ok)
         {
             toast.success("Welcome to Fresh Cart 🛒 " , { position:"top-center" ,duration:3000 } )
