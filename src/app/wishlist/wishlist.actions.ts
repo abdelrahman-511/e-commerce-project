@@ -24,7 +24,7 @@ export async function addto_wishlist( productId :string )
      }  ) ;
 
     const response = await res.json();
-    // console.log("response = " , response);
+    console.log("response = " , response);
     if(response.status==="success")
     {
         revalidateTag("wishlist")
